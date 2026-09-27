@@ -1,63 +1,9 @@
 {
   "date": "20260923",
-  "generated_at": "2026-09-27T21:04:54.413552+09:00",
+  "generated_at": "2026-09-27T21:29:36.125614+09:00",
   "stage": "screen_15_30",
   "market_up": true,
   "candidates": [
-    {
-      "티커": "005290",
-      "종목명": "동진쎄미켐",
-      "시장": "KOSDAQ",
-      "날짜": "20260923",
-      "종가": 46800.0,
-      "등락률": 8.96,
-      "거래량배수": 4.07,
-      "종가강도": 0.921,
-      "MA정배열": true,
-      "거래대금": 44916292225.0,
-      "시가총액": 2385401896800.0,
-      "패턴매칭수": 12,
-      "패턴상승수": 8,
-      "패턴승률": 0.667,
-      "패턴확인": true,
-      "패턴사례": [
-        {
-          "date": "20250912",
-          "distance": 0.01226,
-          "next_day_up": true,
-          "next_day_change_pct": 2.9
-        },
-        {
-          "date": "20250922",
-          "distance": 0.02053,
-          "next_day_up": true,
-          "next_day_change_pct": 2.18
-        },
-        {
-          "date": "20241106",
-          "distance": 0.03029,
-          "next_day_up": true,
-          "next_day_change_pct": 0.69
-        },
-        {
-          "date": "20260415",
-          "distance": 0.032,
-          "next_day_up": true,
-          "next_day_change_pct": 0.35
-        },
-        {
-          "date": "20260617",
-          "distance": 0.03357,
-          "next_day_up": false,
-          "next_day_change_pct": -1.86
-        }
-      ],
-      "악재공시": false,
-      "공시히트": [],
-      "뉴스히트": [],
-      "시장추세": true,
-      "추천": true
-    },
     {
       "티커": "417840",
       "종목명": "저스템",
@@ -70,89 +16,101 @@
       "MA정배열": true,
       "거래대금": 33170428755.0,
       "시가총액": 391929311480.0,
-      "패턴매칭수": 3,
-      "패턴상승수": 2,
-      "패턴승률": 0.667,
-      "패턴확인": false,
+      "패턴매칭수": 6,
+      "패턴상승수": 5,
+      "패턴승률": 0.833,
+      "패턴확인": true,
       "패턴사례": [
         {
-          "date": "20250520",
-          "distance": 0.02628,
+          "date": "20260506",
+          "distance": 0.02397,
           "next_day_up": true,
-          "next_day_change_pct": 1.25
+          "next_day_change_pct": 0.36
         },
         {
           "date": "20260828",
-          "distance": 0.03471,
+          "distance": 0.02514,
           "next_day_up": false,
           "next_day_change_pct": -3.15
         },
         {
-          "date": "20250808",
-          "distance": 0.03941,
-          "next_day_up": true,
-          "next_day_change_pct": 1.04
-        }
-      ],
-      "악재공시": false,
-      "공시히트": [],
-      "뉴스히트": [],
-      "시장추세": true,
-      "추천": false
-    },
-    {
-      "티커": "264450",
-      "종목명": "유비쿼스",
-      "시장": "KOSDAQ",
-      "날짜": "20260923",
-      "종가": 11340.0,
-      "등락률": 6.48,
-      "거래량배수": 15.03,
-      "종가강도": 0.652,
-      "MA정배열": true,
-      "거래대금": 5715481620.0,
-      "시가총액": 166306690620.0,
-      "패턴매칭수": 7,
-      "패턴상승수": 4,
-      "패턴승률": 0.571,
-      "패턴확인": false,
-      "패턴사례": [
-        {
-          "date": "20260219",
-          "distance": 0.01041,
-          "next_day_up": true,
-          "next_day_change_pct": 0.15
-        },
-        {
-          "date": "20240227",
-          "distance": 0.01949,
-          "next_day_up": false,
-          "next_day_change_pct": -1.22
-        },
-        {
-          "date": "20260522",
-          "distance": 0.02868,
+          "date": "20250612",
+          "distance": 0.02978,
           "next_day_up": true,
           "next_day_change_pct": 1.01
         },
         {
-          "date": "20260814",
-          "distance": 0.03814,
+          "date": "20250808",
+          "distance": 0.03438,
           "next_day_up": true,
-          "next_day_change_pct": 0.18
+          "next_day_change_pct": 1.03
         },
         {
-          "date": "20260129",
-          "distance": 0.03886,
-          "next_day_up": false,
-          "next_day_change_pct": 0.0
+          "date": "20250520",
+          "distance": 0.03507,
+          "next_day_up": true,
+          "next_day_change_pct": 1.27
         }
       ],
       "악재공시": false,
       "공시히트": [],
       "뉴스히트": [],
       "시장추세": true,
-      "추천": false
+      "추천": true
+    },
+    {
+      "티커": "005290",
+      "종목명": "동진쎄미켐",
+      "시장": "KOSDAQ",
+      "날짜": "20260923",
+      "종가": 46800.0,
+      "등락률": 8.96,
+      "거래량배수": 4.07,
+      "종가강도": 0.921,
+      "MA정배열": true,
+      "거래대금": 44916292225.0,
+      "시가총액": 2385401896800.0,
+      "패턴매칭수": 8,
+      "패턴상승수": 6,
+      "패턴승률": 0.75,
+      "패턴확인": true,
+      "패턴사례": [
+        {
+          "date": "20250912",
+          "distance": 0.0183,
+          "next_day_up": true,
+          "next_day_change_pct": 2.9
+        },
+        {
+          "date": "20250922",
+          "distance": 0.02501,
+          "next_day_up": true,
+          "next_day_change_pct": 2.18
+        },
+        {
+          "date": "20260415",
+          "distance": 0.02735,
+          "next_day_up": true,
+          "next_day_change_pct": 0.35
+        },
+        {
+          "date": "20260617",
+          "distance": 0.03382,
+          "next_day_up": false,
+          "next_day_change_pct": -1.86
+        },
+        {
+          "date": "20241106",
+          "distance": 0.03559,
+          "next_day_up": true,
+          "next_day_change_pct": 0.69
+        }
+      ],
+      "악재공시": false,
+      "공시히트": [],
+      "뉴스히트": [],
+      "시장추세": true,
+      "추천": true
     },
     {
       "티커": "393210",
@@ -168,7 +126,7 @@
       "시가총액": 63395048640.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -191,9 +149,57 @@
       "시가총액": 110731920640.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
+      "악재공시": false,
+      "공시히트": [],
+      "뉴스히트": [],
+      "시장추세": true,
+      "추천": false
+    },
+    {
+      "티커": "264450",
+      "종목명": "유비쿼스",
+      "시장": "KOSDAQ",
+      "날짜": "20260923",
+      "종가": 11340.0,
+      "등락률": 6.48,
+      "거래량배수": 15.03,
+      "종가강도": 0.652,
+      "MA정배열": true,
+      "거래대금": 5715481620.0,
+      "시가총액": 166306690620.0,
+      "패턴매칭수": 4,
+      "패턴상승수": 2,
+      "패턴승률": 0.5,
+      "패턴확인": false,
+      "패턴사례": [
+        {
+          "date": "20260219",
+          "distance": 0.02,
+          "next_day_up": true,
+          "next_day_change_pct": 0.15
+        },
+        {
+          "date": "20240227",
+          "distance": 0.02749,
+          "next_day_up": false,
+          "next_day_change_pct": -1.22
+        },
+        {
+          "date": "20260522",
+          "distance": 0.02969,
+          "next_day_up": true,
+          "next_day_change_pct": 1.01
+        },
+        {
+          "date": "20251230",
+          "distance": 0.03804,
+          "next_day_up": false,
+          "next_day_change_pct": -0.93
+        }
+      ],
       "악재공시": false,
       "공시히트": [],
       "뉴스히트": [],
@@ -214,7 +220,7 @@
       "시가총액": 267769446500.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -237,7 +243,7 @@
       "시가총액": 398568321500.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -260,7 +266,7 @@
       "시가총액": 193463486740.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -283,7 +289,7 @@
       "시가총액": 397375222200.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -306,7 +312,7 @@
       "시가총액": 316962309900.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -329,63 +335,9 @@
       "시가총액": 524718243000.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
-      "악재공시": false,
-      "공시히트": [],
-      "뉴스히트": [],
-      "시장추세": true,
-      "추천": false
-    },
-    {
-      "티커": "036710",
-      "종목명": "심텍홀딩스",
-      "시장": "KOSDAQ",
-      "날짜": "20260923",
-      "종가": 4485.0,
-      "등락률": 7.81,
-      "거래량배수": 4.33,
-      "종가강도": 0.79,
-      "MA정배열": true,
-      "거래대금": 4525650119.0,
-      "시가총액": 236932476690.0,
-      "패턴매칭수": 6,
-      "패턴상승수": 3,
-      "패턴승률": 0.5,
-      "패턴확인": false,
-      "패턴사례": [
-        {
-          "date": "20231205",
-          "distance": 0.02313,
-          "next_day_up": true,
-          "next_day_change_pct": 0.94
-        },
-        {
-          "date": "20231204",
-          "distance": 0.02594,
-          "next_day_up": false,
-          "next_day_change_pct": -0.48
-        },
-        {
-          "date": "20250106",
-          "distance": 0.03506,
-          "next_day_up": true,
-          "next_day_change_pct": 0.18
-        },
-        {
-          "date": "20250108",
-          "distance": 0.03569,
-          "next_day_up": true,
-          "next_day_change_pct": 3.17
-        },
-        {
-          "date": "20241216",
-          "distance": 0.03794,
-          "next_day_up": false,
-          "next_day_change_pct": -0.27
-        }
-      ],
       "악재공시": false,
       "공시히트": [],
       "뉴스히트": [],
@@ -406,9 +358,57 @@
       "시가총액": 143746160350.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
+      "악재공시": false,
+      "공시히트": [],
+      "뉴스히트": [],
+      "시장추세": true,
+      "추천": false
+    },
+    {
+      "티커": "103590",
+      "종목명": "일진전기",
+      "시장": "KOSPI",
+      "날짜": "20260923",
+      "종가": 81700.0,
+      "등락률": 6.8,
+      "거래량배수": 3.32,
+      "종가강도": 0.722,
+      "MA정배열": true,
+      "거래대금": 80921351650.0,
+      "시가총액": 3895896363000.0,
+      "패턴매칭수": 4,
+      "패턴상승수": 2,
+      "패턴승률": 0.5,
+      "패턴확인": false,
+      "패턴사례": [
+        {
+          "date": "20241224",
+          "distance": 0.03114,
+          "next_day_up": true,
+          "next_day_change_pct": 1.07
+        },
+        {
+          "date": "20240418",
+          "distance": 0.03122,
+          "next_day_up": false,
+          "next_day_change_pct": 0.0
+        },
+        {
+          "date": "20250218",
+          "distance": 0.03604,
+          "next_day_up": true,
+          "next_day_change_pct": 3.46
+        },
+        {
+          "date": "20240614",
+          "distance": 0.03705,
+          "next_day_up": false,
+          "next_day_change_pct": 0.0
+        }
+      ],
       "악재공시": false,
       "공시히트": [],
       "뉴스히트": [],
@@ -429,7 +429,7 @@
       "시가총액": 252867719875.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -452,7 +452,7 @@
       "시가총액": 4089059803200.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -475,7 +475,7 @@
       "시가총액": 415674679980.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -496,22 +496,40 @@
       "MA정배열": true,
       "거래대금": 19167763150.0,
       "시가총액": 782727609800.0,
-      "패턴매칭수": 2,
-      "패턴상승수": 1,
+      "패턴매칭수": 10,
+      "패턴상승수": 5,
       "패턴승률": 0.5,
       "패턴확인": false,
       "패턴사례": [
         {
           "date": "20250627",
-          "distance": 0.02406,
+          "distance": 0.0206,
           "next_day_up": false,
           "next_day_change_pct": -2.51
         },
         {
-          "date": "20241031",
-          "distance": 0.03678,
+          "date": "20250325",
+          "distance": 0.02474,
+          "next_day_up": false,
+          "next_day_change_pct": -0.45
+        },
+        {
+          "date": "20250527",
+          "distance": 0.03147,
           "next_day_up": true,
-          "next_day_change_pct": 0.76
+          "next_day_change_pct": 2.27
+        },
+        {
+          "date": "20251117",
+          "distance": 0.03265,
+          "next_day_up": true,
+          "next_day_change_pct": 0.21
+        },
+        {
+          "date": "20260508",
+          "distance": 0.03369,
+          "next_day_up": true,
+          "next_day_change_pct": 4.34
         }
       ],
       "악재공시": false,
@@ -534,7 +552,7 @@
       "시가총액": 262328130870.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -557,7 +575,7 @@
       "시가총액": 269716278200.0,
       "패턴매칭수": 0,
       "패턴상승수": 0,
-      "패턴승률": NaN,
+      "패턴승률": null,
       "패턴확인": false,
       "패턴사례": [],
       "악재공시": false,
@@ -578,40 +596,28 @@
       "MA정배열": true,
       "거래대금": 6272935100.0,
       "시가총액": 337841868000.0,
-      "패턴매칭수": 7,
-      "패턴상승수": 3,
-      "패턴승률": 0.429,
+      "패턴매칭수": 3,
+      "패턴상승수": 1,
+      "패턴승률": 0.333,
       "패턴확인": false,
       "패턴사례": [
         {
+          "date": "20260130",
+          "distance": 0.02143,
+          "next_day_up": false,
+          "next_day_change_pct": -3.01
+        },
+        {
           "date": "20260707",
-          "distance": 0.01043,
+          "distance": 0.03581,
           "next_day_up": false,
           "next_day_change_pct": -0.31
         },
         {
           "date": "20260917",
-          "distance": 0.02744,
+          "distance": 0.03984,
           "next_day_up": true,
-          "next_day_change_pct": 0.79
-        },
-        {
-          "date": "20260129",
-          "distance": 0.02859,
-          "next_day_up": true,
-          "next_day_change_pct": 0.18
-        },
-        {
-          "date": "20260130",
-          "distance": 0.02952,
-          "next_day_up": false,
-          "next_day_change_pct": -3.01
-        },
-        {
-          "date": "20251022",
-          "distance": 0.02989,
-          "next_day_up": true,
-          "next_day_change_pct": 0.67
+          "next_day_change_pct": 0.13
         }
       ],
       "악재공시": false,
@@ -621,49 +627,145 @@
       "추천": false
     },
     {
-      "티커": "104830",
-      "종목명": "원익머트리얼즈",
+      "티커": "357780",
+      "종목명": "솔브레인",
       "시장": "KOSDAQ",
       "날짜": "20260923",
-      "종가": 36800.0,
-      "등락률": 7.45,
-      "거래량배수": 2.1,
-      "종가강도": 0.767,
+      "종가": 370000.0,
+      "등락률": 9.79,
+      "거래량배수": 2.54,
+      "종가강도": 0.912,
       "MA정배열": true,
-      "거래대금": 3309385225.0,
-      "시가총액": 463974400000.0,
-      "패턴매칭수": 7,
-      "패턴상승수": 3,
-      "패턴승률": 0.429,
+      "거래대금": 21147802750.0,
+      "시가총액": 2878069420000.0,
+      "패턴매칭수": 3,
+      "패턴상승수": 1,
+      "패턴승률": 0.333,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20251113",
-          "distance": 0.02298,
+          "date": "20250620",
+          "distance": 0.02432,
           "next_day_up": false,
-          "next_day_change_pct": -3.87
+          "next_day_change_pct": -2.66
         },
         {
-          "date": "20250108",
-          "distance": 0.02443,
+          "date": "20240320",
+          "distance": 0.03162,
+          "next_day_up": true,
+          "next_day_change_pct": 2.31
+        },
+        {
+          "date": "20260226",
+          "distance": 0.03874,
+          "next_day_up": false,
+          "next_day_change_pct": -3.51
+        }
+      ],
+      "악재공시": false,
+      "공시히트": [],
+      "뉴스히트": [],
+      "시장추세": true,
+      "추천": false
+    },
+    {
+      "티커": "017890",
+      "종목명": "한국알콜",
+      "시장": "KOSDAQ",
+      "날짜": "20260923",
+      "종가": 15390.0,
+      "등락률": 6.88,
+      "거래량배수": 6.03,
+      "종가강도": 0.756,
+      "MA정배열": true,
+      "거래대금": 3784050130.0,
+      "시가총액": 318165257340.0,
+      "패턴매칭수": 12,
+      "패턴상승수": 4,
+      "패턴승률": 0.333,
+      "패턴확인": false,
+      "패턴사례": [
+        {
+          "date": "20260629",
+          "distance": 0.02087,
+          "next_day_up": false,
+          "next_day_change_pct": -1.09
+        },
+        {
+          "date": "20250701",
+          "distance": 0.02835,
+          "next_day_up": true,
+          "next_day_change_pct": 0.88
+        },
+        {
+          "date": "20260129",
+          "distance": 0.02917,
           "next_day_up": false,
           "next_day_change_pct": 0.0
         },
         {
-          "date": "20250916",
-          "distance": 0.02693,
-          "next_day_up": false,
-          "next_day_change_pct": -2.7
-        },
-        {
-          "date": "20240219",
-          "distance": 0.03037,
+          "date": "20240214",
+          "distance": 0.03074,
           "next_day_up": true,
-          "next_day_change_pct": 0.62
+          "next_day_change_pct": 0.32
         },
         {
-          "date": "20250514",
-          "distance": 0.03358,
+          "date": "20251110",
+          "distance": 0.03307,
+          "next_day_up": false,
+          "next_day_change_pct": -0.1
+        }
+      ],
+      "악재공시": false,
+      "공시히트": [],
+      "뉴스히트": [],
+      "시장추세": true,
+      "추천": false
+    },
+    {
+      "티커": "077500",
+      "종목명": "유니퀘스트",
+      "시장": "KOSPI",
+      "날짜": "20260923",
+      "종가": 9190.0,
+      "등락률": 7.61,
+      "거래량배수": 3.89,
+      "종가강도": 0.984,
+      "MA정배열": true,
+      "거래대금": 7224549385.0,
+      "시가총액": 198504937380.0,
+      "패턴매칭수": 10,
+      "패턴상승수": 3,
+      "패턴승률": 0.3,
+      "패턴확인": false,
+      "패턴사례": [
+        {
+          "date": "20250909",
+          "distance": 0.02762,
+          "next_day_up": true,
+          "next_day_change_pct": 1.41
+        },
+        {
+          "date": "20250825",
+          "distance": 0.02896,
+          "next_day_up": false,
+          "next_day_change_pct": -1.12
+        },
+        {
+          "date": "20241119",
+          "distance": 0.03165,
+          "next_day_up": true,
+          "next_day_change_pct": 0.66
+        },
+        {
+          "date": "20240826",
+          "distance": 0.03188,
+          "next_day_up": false,
+          "next_day_change_pct": -5.61
+        },
+        {
+          "date": "20260918",
+          "distance": 0.03295,
           "next_day_up": false,
           "next_day_change_pct": 0.0
         }
@@ -686,94 +788,40 @@
       "MA정배열": true,
       "거래대금": 3048621800.0,
       "시가총액": 1050049185300.0,
-      "패턴매칭수": 38,
-      "패턴상승수": 17,
-      "패턴승률": 0.447,
+      "패턴매칭수": 70,
+      "패턴상승수": 23,
+      "패턴승률": 0.329,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20230919",
-          "distance": 0.01856,
-          "next_day_up": true,
-          "next_day_change_pct": 0.35
-        },
-        {
-          "date": "20240718",
-          "distance": 0.02145,
-          "next_day_up": false,
-          "next_day_change_pct": -0.9
-        },
-        {
-          "date": "20240201",
-          "distance": 0.02237,
-          "next_day_up": true,
-          "next_day_change_pct": 0.73
-        },
-        {
           "date": "20260707",
-          "distance": 0.02473,
+          "distance": 0.01617,
           "next_day_up": false,
           "next_day_change_pct": -1.37
         },
         {
-          "date": "20260220",
-          "distance": 0.02804,
+          "date": "20230919",
+          "distance": 0.01864,
           "next_day_up": true,
-          "next_day_change_pct": 1.93
-        }
-      ],
-      "악재공시": false,
-      "공시히트": [],
-      "뉴스히트": [],
-      "시장추세": true,
-      "추천": false
-    },
-    {
-      "티커": "103590",
-      "종목명": "일진전기",
-      "시장": "KOSPI",
-      "날짜": "20260923",
-      "종가": 81700.0,
-      "등락률": 6.8,
-      "거래량배수": 3.32,
-      "종가강도": 0.722,
-      "MA정배열": true,
-      "거래대금": 80921351650.0,
-      "시가총액": 3895896363000.0,
-      "패턴매칭수": 17,
-      "패턴상승수": 7,
-      "패턴승률": 0.412,
-      "패턴확인": false,
-      "패턴사례": [
+          "next_day_change_pct": 0.35
+        },
         {
-          "date": "20251212",
-          "distance": 0.02653,
+          "date": "20240201",
+          "distance": 0.01963,
+          "next_day_up": true,
+          "next_day_change_pct": 0.73
+        },
+        {
+          "date": "20240718",
+          "distance": 0.01997,
           "next_day_up": false,
-          "next_day_change_pct": -2.81
+          "next_day_change_pct": -0.9
         },
         {
-          "date": "20250218",
-          "distance": 0.02788,
-          "next_day_up": true,
-          "next_day_change_pct": 3.46
-        },
-        {
-          "date": "20240418",
-          "distance": 0.0299,
+          "date": "20250321",
+          "distance": 0.02271,
           "next_day_up": false,
           "next_day_change_pct": 0.0
-        },
-        {
-          "date": "20240603",
-          "distance": 0.03128,
-          "next_day_up": false,
-          "next_day_change_pct": -1.06
-        },
-        {
-          "date": "20231018",
-          "distance": 0.03309,
-          "next_day_up": false,
-          "next_day_change_pct": -1.23
         }
       ],
       "악재공시": false,
@@ -794,40 +842,40 @@
       "MA정배열": true,
       "거래대금": 4577458625.0,
       "시가총액": 122831722090.0,
-      "패턴매칭수": 8,
-      "패턴상승수": 3,
-      "패턴승률": 0.375,
+      "패턴매칭수": 5,
+      "패턴상승수": 1,
+      "패턴승률": 0.2,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20240129",
-          "distance": 0.02065,
-          "next_day_up": false,
-          "next_day_change_pct": -0.74
-        },
-        {
-          "date": "20240424",
-          "distance": 0.02256,
-          "next_day_up": false,
-          "next_day_change_pct": -1.92
-        },
-        {
-          "date": "20241122",
-          "distance": 0.02847,
-          "next_day_up": false,
-          "next_day_change_pct": -0.26
-        },
-        {
           "date": "20260723",
-          "distance": 0.03129,
+          "distance": 0.02242,
           "next_day_up": false,
           "next_day_change_pct": -0.87
         },
         {
+          "date": "20240424",
+          "distance": 0.02537,
+          "next_day_up": false,
+          "next_day_change_pct": -1.92
+        },
+        {
+          "date": "20240129",
+          "distance": 0.03387,
+          "next_day_up": false,
+          "next_day_change_pct": -0.74
+        },
+        {
           "date": "20231212",
-          "distance": 0.03342,
+          "distance": 0.03528,
           "next_day_up": true,
           "next_day_change_pct": 0.81
+        },
+        {
+          "date": "20241122",
+          "distance": 0.03771,
+          "next_day_up": false,
+          "next_day_change_pct": -0.26
         }
       ],
       "악재공시": false,
@@ -837,99 +885,33 @@
       "추천": false
     },
     {
-      "티커": "077500",
-      "종목명": "유니퀘스트",
-      "시장": "KOSPI",
+      "티커": "036710",
+      "종목명": "심텍홀딩스",
+      "시장": "KOSDAQ",
       "날짜": "20260923",
-      "종가": 9190.0,
-      "등락률": 7.61,
-      "거래량배수": 3.89,
-      "종가강도": 0.984,
+      "종가": 4485.0,
+      "등락률": 7.81,
+      "거래량배수": 4.33,
+      "종가강도": 0.79,
       "MA정배열": true,
-      "거래대금": 7224549385.0,
-      "시가총액": 198504937380.0,
-      "패턴매칭수": 12,
-      "패턴상승수": 4,
-      "패턴승률": 0.333,
+      "거래대금": 4525650119.0,
+      "시가총액": 236932476690.0,
+      "패턴매칭수": 2,
+      "패턴상승수": 0,
+      "패턴승률": 0.0,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20250909",
-          "distance": 0.02554,
-          "next_day_up": true,
-          "next_day_change_pct": 1.41
-        },
-        {
-          "date": "20250730",
-          "distance": 0.02635,
-          "next_day_up": true,
-          "next_day_change_pct": 1.14
+          "date": "20231204",
+          "distance": 0.02372,
+          "next_day_up": false,
+          "next_day_change_pct": -0.48
         },
         {
           "date": "20260318",
-          "distance": 0.0275,
+          "distance": 0.03512,
           "next_day_up": false,
-          "next_day_change_pct": -1.83
-        },
-        {
-          "date": "20251128",
-          "distance": 0.0317,
-          "next_day_up": false,
-          "next_day_change_pct": 0.0
-        },
-        {
-          "date": "20240826",
-          "distance": 0.03459,
-          "next_day_up": false,
-          "next_day_change_pct": -5.61
-        }
-      ],
-      "악재공시": false,
-      "공시히트": [],
-      "뉴스히트": [],
-      "시장추세": true,
-      "추천": false
-    },
-    {
-      "티커": "357780",
-      "종목명": "솔브레인",
-      "시장": "KOSDAQ",
-      "날짜": "20260923",
-      "종가": 370000.0,
-      "등락률": 9.79,
-      "거래량배수": 2.54,
-      "종가강도": 0.912,
-      "MA정배열": true,
-      "거래대금": 21147802750.0,
-      "시가총액": 2878069420000.0,
-      "패턴매칭수": 4,
-      "패턴상승수": 1,
-      "패턴승률": 0.25,
-      "패턴확인": false,
-      "패턴사례": [
-        {
-          "date": "20250620",
-          "distance": 0.02426,
-          "next_day_up": false,
-          "next_day_change_pct": -2.66
-        },
-        {
-          "date": "20240320",
-          "distance": 0.02709,
-          "next_day_up": true,
-          "next_day_change_pct": 2.31
-        },
-        {
-          "date": "20260810",
-          "distance": 0.02883,
-          "next_day_up": false,
-          "next_day_change_pct": -1.59
-        },
-        {
-          "date": "20260226",
-          "distance": 0.03901,
-          "next_day_up": false,
-          "next_day_change_pct": -3.51
+          "next_day_change_pct": -2.33
         }
       ],
       "악재공시": false,
@@ -950,40 +932,40 @@
       "MA정배열": true,
       "거래대금": 9493761250.0,
       "시가총액": 826699395800.0,
-      "패턴매칭수": 31,
-      "패턴상승수": 11,
-      "패턴승률": 0.355,
+      "패턴매칭수": 29,
+      "패턴상승수": 9,
+      "패턴승률": 0.31,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20260921",
-          "distance": 0.0196,
-          "next_day_up": true,
-          "next_day_change_pct": 0.15
-        },
-        {
-          "date": "20250120",
-          "distance": 0.02173,
-          "next_day_up": false,
-          "next_day_change_pct": -0.67
-        },
-        {
           "date": "20260810",
-          "distance": 0.02211,
+          "distance": 0.02184,
           "next_day_up": false,
           "next_day_change_pct": 0.0
         },
         {
-          "date": "20260922",
-          "distance": 0.02463,
-          "next_day_up": false,
-          "next_day_change_pct": -0.42
+          "date": "20250619",
+          "distance": 0.02342,
+          "next_day_up": true,
+          "next_day_change_pct": 0.73
         },
         {
-          "date": "20260126",
-          "distance": 0.02613,
+          "date": "20260918",
+          "distance": 0.02589,
           "next_day_up": false,
-          "next_day_change_pct": -0.77
+          "next_day_change_pct": -1.47
+        },
+        {
+          "date": "20260922",
+          "distance": 0.02741,
+          "next_day_up": true,
+          "next_day_change_pct": 0.99
+        },
+        {
+          "date": "20250120",
+          "distance": 0.02809,
+          "next_day_up": false,
+          "next_day_change_pct": -0.67
         }
       ],
       "악재공시": false,
@@ -993,49 +975,43 @@
       "추천": false
     },
     {
-      "티커": "017890",
-      "종목명": "한국알콜",
+      "티커": "104830",
+      "종목명": "원익머트리얼즈",
       "시장": "KOSDAQ",
       "날짜": "20260923",
-      "종가": 15390.0,
-      "등락률": 6.88,
-      "거래량배수": 6.03,
-      "종가강도": 0.756,
+      "종가": 36800.0,
+      "등락률": 7.45,
+      "거래량배수": 2.1,
+      "종가강도": 0.767,
       "MA정배열": true,
-      "거래대금": 3784050130.0,
-      "시가총액": 318165257340.0,
-      "패턴매칭수": 14,
-      "패턴상승수": 4,
-      "패턴승률": 0.286,
+      "거래대금": 3309385225.0,
+      "시가총액": 463974400000.0,
+      "패턴매칭수": 4,
+      "패턴상승수": 0,
+      "패턴승률": 0.0,
       "패턴확인": false,
       "패턴사례": [
         {
-          "date": "20260629",
-          "distance": 0.02217,
+          "date": "20250916",
+          "distance": 0.03035,
           "next_day_up": false,
-          "next_day_change_pct": -1.09
+          "next_day_change_pct": -2.7
         },
         {
-          "date": "20240214",
-          "distance": 0.02602,
-          "next_day_up": true,
-          "next_day_change_pct": 0.32
-        },
-        {
-          "date": "20251110",
-          "distance": 0.02984,
+          "date": "20251113",
+          "distance": 0.03564,
           "next_day_up": false,
-          "next_day_change_pct": -0.1
+          "next_day_change_pct": -3.87
         },
         {
-          "date": "20250701",
-          "distance": 0.03095,
-          "next_day_up": true,
-          "next_day_change_pct": 0.88
+          "date": "20251029",
+          "distance": 0.03599,
+          "next_day_up": false,
+          "next_day_change_pct": 0.0
         },
         {
-          "date": "20260408",
-          "distance": 0.03329,
+          "date": "20250108",
+          "distance": 0.03829,
           "next_day_up": false,
           "next_day_change_pct": 0.0
         }
