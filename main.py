@@ -42,9 +42,20 @@ def main():
     p_sell.add_argument("--sell-date", default=None, help="매도 신호 생성일(오늘) YYYYMMDD")
 
     sub.add_parser("schedule", help="스케줄러 상시 실행 (15:35/18:30/08:30)")
+    sub.add_parser("telegram-test", help="텔레그램 연결 테스트 메시지 전송 (실패하면 원인 출력 후 오류 종료)")
 
     args = parser.parse_args()
     setup_logging()
+
+    if args.command == "telegram-test":
+        import telegram_notifier
+        try:
+            telegram_notifier.send_test_message()
+            print("✅ 텔레그램 테스트 메시지 전송 성공 - 텔레그램 앱을 확인하세요.")
+        except Exception as e:
+            print(f"❌ 텔레그램 테스트 실패: {e}")
+            sys.exit(1)
+        return
 
     import config
     if args.command in ("screen", "buy", "sell", "schedule") and not (config.KRX_ID and config.KRX_PW):
