@@ -1,0 +1,25 @@
+name: "4) 텔레그램 연결 테스트"
+
+on:
+  workflow_dispatch: {}  # 수동 실행 전용
+
+jobs:
+  telegram-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v5
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      - name: 텔레그램 테스트 메시지 보내기 (실패하면 원인이 여기 표시됨)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py telegram-test
