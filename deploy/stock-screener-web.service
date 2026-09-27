@@ -1,0 +1,17 @@
+[Unit]
+Description=Stock Screener Mobile Dashboard (Flask)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/stock_screener/webapp
+EnvironmentFile=/home/ubuntu/stock_screener/.env
+Environment=PORT=8000
+ExecStart=/usr/bin/python3 /home/ubuntu/stock_screener/webapp/app.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

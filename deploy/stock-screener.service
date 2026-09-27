@@ -1,0 +1,16 @@
+[Unit]
+Description=Stock Screener Scheduler (15:35 / 18:30 / 08:30 KST)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/stock_screener
+EnvironmentFile=/home/ubuntu/stock_screener/.env
+ExecStart=/usr/bin/python3 /home/ubuntu/stock_screener/main.py schedule
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

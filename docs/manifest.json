@@ -1,0 +1,15 @@
+{
+  "name": "주식 스크리너",
+  "short_name": "스크리너",
+  "description": "정규장 종가 스크리닝 / NXT 매수 신호 / 익일 장초 매도 신호",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

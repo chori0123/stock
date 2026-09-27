@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>주식 스크리너</title>
+<meta name="theme-color" content="#0b0f14">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="스크리너">
+<style>
+  :root {
+    --bg: #0b0f14; --card: #151b23; --border: #232b36; --text: #e7edf3;
+    --sub: #8b98a5; --up: #ff4d4f; --accent: #2ecc71; --warn: #f39c12; --danger: #ff5c5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  header { padding: 16px 16px 8px; position: sticky; top: 0; background: var(--bg); z-index: 5; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .updated { font-size: 12px; color: var(--sub); }
+  .tabs {
+    display: flex; gap: 8px; padding: 8px 16px 12px; position: sticky; top: 52px;
+    background: var(--bg); z-index: 5; overflow-x: auto;
+  }
+  .tab {
+    flex: 1; text-align: center; padding: 10px 8px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--border); font-size: 13px;
+    color: var(--sub); white-space: nowrap;
+  }
+  .tab.active { color: var(--text); border-color: var(--accent); background: #16241c; }
+  main { padding: 0 16px 32px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 10px; }
+  .card .name { font-size: 15px; font-weight: 600; }
+  .card .ticker { color: var(--sub); font-size: 12px; margin-left: 4px; }
+  .row { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+  .metric { font-size: 12px; color: var(--sub); }
+  .metric b { color: var(--text); }
+  .badge { display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 999px; margin-top: 6px; margin-right: 6px; }
+  .badge.pattern { background: #16241c; color: var(--accent); border: 1px solid #1f3a2a; }
+  .badge.warn { background: #2b1f10; color: var(--warn); border: 1px solid #4a3416; }
+  .badge.danger { background: #2b1414; color: var(--danger); border: 1px solid #4a1e1e; }
+  .change-up { color: var(--up); }
+  .empty, .note { color: var(--sub); font-size: 12px; }
+  .note { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 12px; line-height: 1.5; }
+  .empty { text-align: center; padding: 60px 20px; font-size: 14px; }
+  .refresh {
+    position: fixed; right: 16px; bottom: calc(20px + env(safe-area-inset-bottom));
+    background: var(--accent); color: #06210f; border: none; border-radius: 999px;
+    width: 52px; height: 52px; font-size: 20px; box-shadow: 0 6px 16px rgba(0,0,0,.4);
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>📊 주식 스크리너</h1>
+  <div class="updated" id="updated">불러오는 중...</div>
+  <a href="./backtest.html" style="font-size:12px;color:#2ecc71">📈 백테스트 결과 보기</a>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-tab="screen">15:30 스크리닝</div>
+  <div class="tab" data-tab="buy">18~19시 매수신호</div>
+  <div class="tab" data-tab="sell">08~09시 매도신호</div>
+</div>
+
+<main id="content"><div class="empty">불러오는 중...</div></main>
+
+<button class="refresh" onclick="load()">↻</button>
+
+<script>
+// 서버 없이 GitHub Pages 정적 파일만으로 동작. GitHub Actions 가 매일 3번(15:35/18:30/08:30 KST)
+// data/latest_*.json 을 갱신해서 이 저장소에 커밋해주면, 이 페이지는 그 파일을 그냥 읽기만 한다.
+let state = { screen: null, buy: null, sell: null };
+let activeTab = "screen";
+
+async function fetchJson(name) {
+  try {
+    // GitHub Pages(Fastly CDN) 캐시를 피하기 위해 매번 다른 쿼리스트링을 붙인다.
+    const res = await fetch(`./data/latest_${name}.json?t=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function load() {
+  document.getElementById("updated").textContent = "새로고침 중...";
+  const [screen, buy, sell] = await Promise.all([
+    fetchJson("screen"), fetchJson("buy"), fetchJson("sell"),
+  ]);
+  state = { screen, buy, sell };
+  render();
+}
+
+function fmtNum(v, unit) {
+  if (v === null || v === undefined) return "-";
+  return Number(v).toLocaleString() + (unit || "");
+}
+
+function renderScreen(data) {
+  if (!data) return `<div class="empty">아직 생성된 스크리닝 결과가 없습니다.</div>`;
+  const items = data.candidates || [];
+  const rec = items.filter(c => c.추천);
+  let html = `<div class="note">시장지수 20일선 ${data.market_up===true ? "위 ✅" : data.market_up===false ? "아래 ⛔ (매수 쉬는 날)" : "-"}<br>[${data.date}] 기술적 조건 통과 ${items.length}개 → <b>검증조건 통과 ${rec.length}개</b>` +
+    (rec.length ? "" : "<br>오늘은 매수하지 않는 날입니다.") + `</div>`;
+  return html + items.map((c, i) => `
+    <div class="card" style="${c.추천 ? "" : "opacity:.55"}">
+      <div class="name">${c.추천 ? "✅ " : ""}${c.종목명} <span class="ticker">${c.티커}</span></div>
+      <div class="row">
+        <span class="metric">종가 <b>${fmtNum(c.종가, "원")}</b></span>
+        <span class="metric change-up">+${(c.등락률||0).toFixed(1)}%</span>
+      </div>
+      <div class="row">
+        <span class="metric">거래량 <b>${(c.거래량배수||0).toFixed(1)}배</b></span>
+        <span class="metric">종가강도 <b>${(c.종가강도||0).toFixed(2)}</b></span>
+      </div>
+      <span class="badge ${c.패턴확인 ? "pattern" : "warn"}">🔁 과거 동일패턴 ${c.패턴매칭수||0}건 · 익일시가↑ ${c.패턴승률==null ? "-" : Math.round(c.패턴승률*100)+"%"}</span>
+      ${c.악재공시 ? `<span class="badge danger">🚫 악재공시</span>` : ""}
+    </div>
+  `).join("");
+}
+
+function renderBuy(data) {
+  if (!data) return `<div class="empty">아직 생성된 매수 신호가 없습니다.</div>`;
+  const v = data.validation || {};
+  const o = v.oos || {};
+  const vbox = o.trades ? `<div class="note">📈 백테스트 검증기간: 1회 평균 <b>${o.avg_net_pct>0?"+":""}${o.avg_net_pct}%</b>,
+    승률 ${Math.round(o.win_rate*100)}%, 최대낙폭 ${o.max_drawdown_pct}% (비용 차감 · 미래 보장 아님)
+    · <a href="./backtest.html" style="color:#2ecc71">상세</a></div>` : "";
+  const warn = (v.edge_confirmed === false || v.recent_warning) ? `<div class="note" style="color:#ff5c5c">⚠️ 최근 백테스트에서 전략 유효성이 약해졌습니다. 매수 보류 권고.</div>` : "";
+  if (!data.buy_candidates || data.buy_candidates.length === 0) {
+    return warn + `<div class="note">[${data.date}] ${data.note || "매수 후보 없음"}</div>` + vbox;
+  }
+  return warn + `<div class="note">${data.note || ""}</div>` + vbox + data.buy_candidates.map((c, i) => `
+    <div class="card">
+      <div class="name">${i+1}. ${c.종목명} <span class="ticker">${c.티커}</span></div>
+      <div class="row">
+        <span class="metric">종가 <b>${fmtNum(c.정규장종가, "원")}</b></span>
+        <span class="metric">매수상한 <b style="color:#2ecc71">${fmtNum(c.매수상한가, "원")}</b></span>
+      </div>
+      <span class="badge pattern">🔁 과거 동일패턴 ${c.패턴매칭수||0}건 · 익일시가↑ ${c.패턴승률==null ? "-" : Math.round(c.패턴승률*100)+"%"}</span>
+    </div>
+  `).join("");
+}
+
+function renderSell(data) {
+  if (!data) return `<div class="empty">아직 생성된 매도 신호가 없습니다.</div>`;
+  if (!data.sell_candidates || data.sell_candidates.length === 0) {
+    return `<div class="note">[${data.sell_date}] 매도 대상 종목이 없습니다.</div>`;
+  }
+  return `<div class="note">${data.note || ""}</div>` + data.sell_candidates.map((c, i) => `
+    <div class="card">
+      <div class="name">${i+1}. ${c.종목명} <span class="ticker">${c.티커}</span></div>
+      <div class="metric">${c.전략 || ""}</div>
+      ${c.우선매도권고 ? `<span class="badge danger">🚨 우선매도 권고</span>` : `<span class="badge warn">특이 악재 없음</span>`}
+    </div>
+  `).join("");
+}
+
+function render() {
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.tab === activeTab));
+  const content = document.getElementById("content");
+  const data = state[activeTab];
+  if (activeTab === "screen") content.innerHTML = renderScreen(data);
+  if (activeTab === "buy") content.innerHTML = renderBuy(data);
+  if (activeTab === "sell") content.innerHTML = renderSell(data);
+
+  const dates = [state.screen?.date, state.buy?.date, state.sell?.sell_date].filter(Boolean);
+  document.getElementById("updated").textContent = dates.length
+    ? "최신 데이터: " + dates[dates.length - 1] + " (생성 " + (state[activeTab]?.generated_at || "-") + ")"
+    : "데이터 없음 - 아직 GitHub Actions가 실행되지 않았거나 결과가 없습니다.";
+}
+
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => { activeTab = t.dataset.tab; render(); });
+});
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").catch(() => {});
+}
+
+load();
+setInterval(load, 5 * 60 * 1000); // 5분마다 자동 새로고침
+</script>
+</body>
+</html>
