@@ -62,6 +62,9 @@ def run_screen(end_date: str = None) -> pd.DataFrame:
     market_up = bool(trend.get(end_date)) if pd.notna(trend.get(end_date)) else False
     logger.info("시장지수 %d일선 위: %s", config.MARKET_MA_DAYS, market_up)
     today = df[df["date"] == end_date].copy()
+    if today.empty or today["close"].fillna(0).sum() == 0:
+        # 조용히 '추천 없음'으로 끝내면 안 됨: 데이터 미게시/로그인 실패를 매수 쉬는 날로 오해할 수 있음
+        raise RuntimeError(f"{end_date} 시세 데이터가 비어 있습니다. KRX 데이터 미게시 또는 KRX 로그인 실패일 수 있습니다.")
     cand = today[F.rules_mask(today, config)].copy()
     logger.info("기술적 조건 통과: %d개 (전체 %d개 중)", len(cand), len(today))
     if cand.empty:

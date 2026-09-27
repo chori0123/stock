@@ -46,6 +46,14 @@ def main():
     args = parser.parse_args()
     setup_logging()
 
+    import config
+    if args.command in ("screen", "buy", "sell", "schedule") and not (config.KRX_ID and config.KRX_PW):
+        logging.getLogger("main").error(
+            "KRX_ID / KRX_PW 가 설정되지 않았습니다. 2025-12-27부터 KRX 데이터는 로그인이 필수입니다. "
+            "GitHub: Settings > Secrets and variables > Actions 에 KRX_ID, KRX_PW 를 등록하세요.")
+        if args.command == "screen":
+            sys.exit(1)
+
     if args.command == "screen":
         path = signal_generator.run_screen_and_save(args.date)
         signal_generator.print_summary(path)

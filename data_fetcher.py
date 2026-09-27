@@ -134,14 +134,26 @@ def get_ticker_ohlcv_history(ticker: str, start_date: str, end_date: str) -> pd.
 
     반환 컬럼: 날짜(index), 시가, 고가, 저가, 종가, 거래량, (거래대금, 등락률은 버전에 따라 포함될 수 있음)
     """
-    try:
-        df = stock.get_market_ohlcv(start_date, end_date, ticker)
-    except Exception as e:
-        logger.warning("종목 이력 조회 실패 (%s): %s", ticker, e)
+    # 주의: pykrx 의 adjusted=True(기본값)는 KRX가 아니라 네이버 차트 데이터를 가져온다.
+    # 백테스트는 KRX 정규장 원시 시세(+등락률로 액면분할 등 제외)로 검증했으므로, 똑같이
+    # KRX 원시 시세(adjusted=False)를 쓴다. 조회 기간 제한에 대비해 1년 단위로 나눠 조회.
+    frames = []
+    s = datetime.strptime(start_date, "%Y%m%d")
+    e_all = datetime.strptime(end_date, "%Y%m%d")
+    while s <= e_all:
+        e = min(s + timedelta(days=364), e_all)
+        try:
+            part = stock.get_market_ohlcv_by_date(s.strftime("%Y%m%d"), e.strftime("%Y%m%d"), ticker, adjusted=False)
+        except Exception as ex:
+            logger.warning("종목 이력 조회 실패 (%s %s~%s): %s", ticker, s.date(), e.date(), ex)
+            return pd.DataFrame()   # 일부 기간이 빠진 이력으로 판정하면 안 되므로 전체 실패 처리
+        if part is not None and not part.empty:
+            frames.append(part)
+        s = e + timedelta(days=1)
+    if not frames:
         return pd.DataFrame()
-    if df is None or df.empty:
-        return pd.DataFrame()
-    df = df.copy()
+    df = pd.concat(frames)
+    df = df[~df.index.duplicated(keep="last")].sort_index()
     df.index.name = "날짜"
     return df
 
