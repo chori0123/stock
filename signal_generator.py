@@ -15,6 +15,7 @@ NXT(대체거래소) 는 저녁 시간대(오후 8시~) 및 익일 아침(오전
 
 import json
 import logging
+import math
 import os
 from datetime import datetime, timedelta
 
@@ -38,9 +39,29 @@ def _path(kind: str, date: str) -> str:
     return os.path.join(config.DATA_DIR, f"{kind}_{date}.json")
 
 
+def _clean(obj):
+    """NaN/Infinity -> None. (NaN 이 JSON 에 들어가면 브라우저가 파일 전체를 읽지 못해 웹앱 탭이 비어 보임)"""
+    if isinstance(obj, dict):
+        return {k: _clean(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_clean(v) for v in obj]
+    if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+        return None
+    if hasattr(obj, "item") and not isinstance(obj, (str, bytes)):   # numpy 스칼라
+        try:
+            return _clean(obj.item())
+        except Exception:
+            return obj
+    return obj
+
+
+def _dump(payload: dict, f):
+    json.dump(_clean(payload), f, ensure_ascii=False, indent=2, default=str, allow_nan=False)
+
+
 def _save_json(path: str, payload: dict):
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2, default=str)
+        _dump(payload, f)
     logger.info("저장 완료: %s", path)
 
 
@@ -53,7 +74,7 @@ def _publish_web_copy(kind: str, payload: dict):
         os.makedirs(WEB_DATA_DIR, exist_ok=True)
         path = os.path.join(WEB_DATA_DIR, f"latest_{kind}.json")
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2, default=str)
+            _dump(payload, f)
         logger.info("웹앱용 최신 데이터 저장 완료: %s", path)
     except Exception as e:
         logger.warning("웹앱용 데이터(docs/data) 저장 실패 (무시하고 계속 진행): %s", e)
@@ -104,10 +125,11 @@ def generate_buy_signals(date: str = None) -> str:
     date = date or data_fetcher.get_latest_trading_day()
     cand_path = _path("candidates", date)
     if not os.path.exists(cand_path):
-        raise FileNotFoundError(
-            f"{cand_path} 가 없습니다. 먼저 run_screen_and_save() (15:30 스크리닝)를 실행하세요."
-        )
-    cand = _load_json(cand_path)
+        # 멈추지 말고 '스크리닝 결과 없음'을 알림으로 보냄 (스크리닝 단계 실패/미실행)
+        logger.error("%s 가 없습니다. 15:30 스크리닝이 실행되지 않았거나 실패했습니다.", cand_path)
+        cand = {"candidates": [], "market_up": None, "missing_input": True}
+    else:
+        cand = _load_json(cand_path)
     candidates = [c for c in cand.get("candidates", []) if c.get("추천")][: config.TOP_K]
     validation = load_validation()
 
@@ -136,6 +158,9 @@ def generate_buy_signals(date: str = None) -> str:
     elif market_up is False and config.MARKET_TREND_FILTER:
         note = ("시장지수가 20일 이동평균 아래입니다. 과거 11년간 이런 날은 이 전략의 기대수익이 "
                 "0 근처였고 손실폭이 컸으므로 오늘은 매수하지 않습니다.")
+    elif cand.get("missing_input"):
+        note = ("⚠️ 15:30 스크리닝 결과가 없어 매수 신호를 만들지 못했습니다. "
+                "GitHub Actions 에서 '1) 15:30 종가 스크리닝' 실행 기록을 확인하세요. 오늘은 매수하지 마세요.")
     else:
         note = "오늘은 검증된 조건을 통과한 종목이 없습니다. 전략상 매수하지 않는 날입니다."
     if validation and (not validation.get("edge_confirmed", True) or validation.get("recent_warning")):
@@ -148,6 +173,7 @@ def generate_buy_signals(date: str = None) -> str:
         "window": config.BUY_SIGNAL_WINDOW,
         "buy_candidates": buy_list,
         "market_up": market_up,
+        "missing_input": bool(cand.get("missing_input")),
         "validation": validation,
         "note": note,
     }
@@ -173,11 +199,13 @@ def generate_sell_signals(buy_date: str = None, sell_date: str = None) -> str:
     sell_date = sell_date or data_fetcher.now_kst().strftime("%Y%m%d")
 
     buy_path = _path("buy_signals", buy_date)
-    if not os.path.exists(buy_path):
-        raise FileNotFoundError(
-            f"{buy_path} 가 없습니다. 먼저 generate_buy_signals() 를 실행하세요."
-        )
-    buy = _load_json(buy_path)
+    missing_input = not os.path.exists(buy_path)
+    if missing_input:
+        # 멈추지 말고 '전일 매수 신호 기록 없음'을 알림으로 보냄
+        logger.error("%s 가 없습니다. 전 거래일 18:30 매수 신호 단계가 실행되지 않았거나 실패했습니다.", buy_path)
+        buy = {"buy_candidates": []}
+    else:
+        buy = _load_json(buy_path)
     buy_candidates = buy.get("buy_candidates", [])
     tickers = [b["티커"] for b in buy_candidates]
 
@@ -210,7 +238,10 @@ def generate_sell_signals(buy_date: str = None, sell_date: str = None) -> str:
         "stage": "sell_signal_08_00_09_00",
         "window": config.SELL_SIGNAL_WINDOW,
         "sell_candidates": sell_list,
+        "missing_input": missing_input,
         "note": (
+            f"⚠️ {buy_date} 매수 신호 기록이 없습니다(18:30 매수 신호 단계 미실행/실패). "
+            "이 프로그램 신호로 산 종목이 있다면 직접 확인해서 장초에 매도하세요." if missing_input else
             "익일 08:00~09:00 사이 NXT 시간외 매매 또는 정규장 개장 동시호가를 활용해 "
             "매도하는 것을 기본 전략으로 합니다. 우선매도권고=true 인 종목은 장 시작 전 "
             "악재 공시가 있었으므로 우선적으로 처리하는 것을 검토하세요."

@@ -153,7 +153,7 @@ function renderBuy(data) {
 function renderSell(data) {
   if (!data) return `<div class="empty">아직 생성된 매도 신호가 없습니다.</div>`;
   if (!data.sell_candidates || data.sell_candidates.length === 0) {
-    return `<div class="note">[${data.sell_date}] 매도 대상 종목이 없습니다.</div>`;
+    return `<div class="note" style="${data && data.missing_input ? "color:#ff5c5c" : ""}">[${data ? data.sell_date : "-"}] ${data && data.missing_input ? data.note : "매도 대상 종목이 없습니다."}</div>`;
   }
   return `<div class="note">${data.note || ""}</div>` + data.sell_candidates.map((c, i) => `
     <div class="card">

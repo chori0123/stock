@@ -30,6 +30,7 @@ import pandas as pd
 import config
 import data_fetcher
 import features as F
+from signal_generator import _clean
 
 logger = logging.getLogger("backtest")
 
@@ -233,10 +234,10 @@ def run(ds: pd.DataFrame, dev=DEV, test_start=TEST_START, k=None) -> dict:
 def write_outputs(result: dict):
     os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
     with open(MODEL_PATH, "w", encoding="utf-8") as f:
-        json.dump(result["model"], f, ensure_ascii=False, indent=1)
+        json.dump(_clean(result["model"]), f, ensure_ascii=False, indent=1, allow_nan=False)
     os.makedirs(os.path.dirname(SUMMARY_JSON), exist_ok=True)
     with open(SUMMARY_JSON, "w", encoding="utf-8") as f:
-        json.dump(result["summary"], f, ensure_ascii=False, indent=1)
+        json.dump(_clean(result["summary"]), f, ensure_ascii=False, indent=1, allow_nan=False)
     with open(REPORT_HTML, "w", encoding="utf-8") as f:
         f.write(render_html(result["summary"]))
     logger.info("저장: %s, %s, %s", MODEL_PATH, SUMMARY_JSON, REPORT_HTML)

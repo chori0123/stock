@@ -91,6 +91,9 @@ def format_buy_message(payload: dict) -> str:
     lines = [f"🌙 <b>[{date}] NXT 매수 신호</b>"]
     if v and (not v.get("edge_confirmed", True) or v.get("recent_warning")):
         lines.append("⚠️ 최근 백테스트에서 전략 유효성이 약해짐 - 매수 보류 권고")
+    if payload.get("missing_input"):
+        lines.append("⚠️ 15:30 스크리닝 결과가 없어 매수 신호를 만들지 못했습니다. 오늘은 매수하지 마세요.")
+        return "\n".join(lines)
     if not items:
         if payload.get("market_up") is False:
             lines.append("시장지수가 20일선 아래 → 오늘은 매수하지 않습니다.")
@@ -111,6 +114,9 @@ def format_buy_message(payload: dict) -> str:
 def format_sell_message(payload: dict) -> str:
     sell_date = payload.get("sell_date", "")
     items = payload.get("sell_candidates", [])
+    if payload.get("missing_input"):
+        return (f"🌅 <b>[{sell_date}] 장초 매도 신호</b>\n⚠️ 전 거래일({payload.get('buy_date')}) 매수 신호 기록이 없습니다.\n"
+                "매수 신호 단계가 실행되지 않았거나 실패했습니다. 이 신호로 산 종목이 있다면 직접 장초에 매도하세요.")
     if not items:
         return f"🌅 <b>[{sell_date}] 장초 매도 신호</b>\n대상 종목이 없습니다."
     lines = [f"🌅 <b>[{sell_date}] 장초 매도 신호 ({len(items)}개, 08:00~09:00 확인)</b>"]

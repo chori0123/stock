@@ -377,6 +377,30 @@ assert sell_item["익일공시점수"] == -1.5
 print("[PASS] generate_sell_signals 저장 정상 (악재 공시 -> 우선매도권고 True):", p3)
 
 
+# 과거 사례가 없는 종목(패턴승률 NaN)이 섞여도 웹앱이 읽을 수 있는 '엄격한 JSON'으로 저장돼야 함
+# (NaN 이 들어가면 브라우저가 파일 전체를 못 읽어 스크리닝 탭이 비어 보임 - 실제 발생했던 버그)
+nan_result = fake_screen_result.copy()
+nan_result.loc[1, "패턴승률"] = float("nan")
+with mock.patch("screener.run_screen", return_value=nan_result):
+    p_nan = signal_generator.run_screen_and_save("20260915")
+def _reject(x): raise ValueError(f"JSON 에 {x} 포함")
+for pth in [p_nan, os.path.join(TEST_WEB_DATA_DIR, "latest_screen.json")]:
+    loaded = json.load(open(pth, encoding="utf-8"), parse_constant=_reject)
+assert loaded["candidates"][1]["패턴승률"] is None
+print("[PASS] NaN 은 null 로 저장 -> 브라우저가 읽을 수 있는 엄격한 JSON")
+
+# 앞 단계 결과가 없을 때: 멈추지 않고 경고 알림을 만들어야 함 (사용자가 실제로 겪은 상황)
+p_sell_missing = signal_generator.generate_sell_signals("20260923", "20260927")   # 9/23 매수 기록 없음
+dm = json.load(open(p_sell_missing, encoding="utf-8"))
+assert dm["missing_input"] is True and dm["sell_candidates"] == []
+assert "매수 신호 기록이 없습니다" in telegram_notifier.format_sell_message(dm)
+p_buy_missing = signal_generator.generate_buy_signals("20260901")                  # 9/1 스크리닝 기록 없음
+db = json.load(open(p_buy_missing, encoding="utf-8"))
+assert db["missing_input"] is True and db["buy_candidates"] == [] and "매수하지 마세요" in db["note"]
+assert "스크리닝 결과가 없어" in telegram_notifier.format_buy_message(db)
+print("[PASS] 앞 단계 결과가 없으면 오류로 멈추지 않고 '기록 없음' 경고 알림 생성")
+
+
 # ---------------------------------------------------------------------------
 # 5) GitHub Pages 정적 배포용 docs/data/latest_*.json 발행 검증
 #    (반드시 테스트 전용 WEB_DATA_DIR 에만 쓰이고, 실제 프로젝트 docs/data 는 건드리지 않아야 함)
