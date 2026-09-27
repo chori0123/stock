@@ -19,10 +19,10 @@ jobs:
     timeout-minutes: 90
     steps:
       - name: 저장소 체크아웃
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 파이썬 설치
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -30,7 +30,7 @@ jobs:
         run: pip install -r requirements.txt pyarrow
 
       - name: 과거 데이터 캐시 (올해 파일만 매주 새로 받음)
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: data/cache
           key: marcap-${{ github.run_id }}
