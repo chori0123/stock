@@ -1,0 +1,47 @@
+name: "1) 15:30 종가 스크리닝"
+
+on:
+  schedule:
+    # 매일 06:35 UTC = 15:35 KST (월~금). 정규장 종가(15:30) 데이터 반영 시차 감안 5분 후 실행.
+    - cron: "35 6 * * 1-5"
+  workflow_dispatch: {}  # GitHub 저장소 Actions 탭에서 수동으로 즉시 실행해 테스트할 수 있음
+
+permissions:
+  contents: write  # docs/data/*.json 커밋을 위해 필요
+
+concurrency:
+  group: stock-screener-screen
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      - name: 15:30 종가 스크리닝 실행
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}
+          KRX_PW: ${{ secrets.KRX_PW }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py screen
+
+      - name: 결과 커밋 & 푸시 (docs/data, data)
+        run: |
+          git config user.name "stock-screener-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data data
+          git diff --cached --quiet && echo "변경사항 없음" || git commit -m "chore: 15:30 스크리닝 결과 갱신 [skip ci]"
+          git pull --rebase
+          git push
