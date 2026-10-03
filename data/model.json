@@ -1,6 +1,6 @@
 {
  "version": 2,
- "trained_at": "2026-09-27T10:07:42.797812+09:00",
+ "trained_at": "2026-10-03T10:13:48.262706+09:00",
  "live_strategy": {
   "name": "E. ★현재★ 기술적 조건 + 과거패턴(5건↑·60%↑) + 시장 20일선 위, 5종목",
   "edge_confirmed": true,
@@ -15,22 +15,22 @@
    "annual_return_pct": 40.5
   },
   "oos": {
-   "trades": 1280,
-   "avg_net_pct": 0.471,
-   "median_net_pct": 0.101,
-   "win_rate": 0.527,
-   "t_stat": 5.11,
+   "trades": 1288,
+   "avg_net_pct": 0.467,
+   "median_net_pct": 0.097,
+   "win_rate": 0.526,
+   "t_stat": 5.1,
    "max_drawdown_pct": -15.95,
-   "annual_return_pct": 89.9
+   "annual_return_pct": 89.2
   },
   "recent": {
-   "trades": 329,
-   "avg_net_pct": 0.709,
-   "median_net_pct": 0.274,
-   "win_rate": 0.55,
-   "t_stat": 3.06,
-   "max_drawdown_pct": -7.68,
-   "annual_return_pct": 135.5
+   "trades": 323,
+   "avg_net_pct": 0.667,
+   "median_net_pct": 0.242,
+   "win_rate": 0.548,
+   "t_stat": 2.94,
+   "max_drawdown_pct": -7.84,
+   "annual_return_pct": 126.7
   },
   "cost_stress": {
    "dev": {
@@ -47,26 +47,26 @@
    },
    "test": {
     "+0.1%": {
-     "avg_net_pct": 0.371,
-     "win_rate": 0.5,
-     "t_stat": 4.09
+     "avg_net_pct": 0.367,
+     "win_rate": 0.499,
+     "t_stat": 4.08
     },
     "+0.2%": {
-     "avg_net_pct": 0.271,
+     "avg_net_pct": 0.267,
      "win_rate": 0.466,
-     "t_stat": 3.08
+     "t_stat": 3.06
     }
    },
    "recent": {
     "+0.1%": {
-     "avg_net_pct": 0.609,
-     "win_rate": 0.535,
-     "t_stat": 2.65
+     "avg_net_pct": 0.567,
+     "win_rate": 0.533,
+     "t_stat": 2.54
     },
     "+0.2%": {
-     "avg_net_pct": 0.509,
-     "win_rate": 0.505,
-     "t_stat": 2.24
+     "avg_net_pct": 0.467,
+     "win_rate": 0.502,
+     "t_stat": 2.14
     }
    }
   },
@@ -77,11 +77,11 @@
    ],
    "test": [
     "20230102",
-    "20260922"
+    "20260930"
    ],
    "recent": [
-    "20250916",
-    "20260922"
+    "20250922",
+    "20260930"
    ]
   }
  }
