@@ -1,6 +1,6 @@
 {
   "date": "20261002",
-  "generated_at": "2026-10-02T18:45:41.845089+09:00",
+  "generated_at": "2026-10-05T18:48:03.872978+09:00",
   "stage": "buy_signal_18_00_19_00",
   "window": [
     "18:00",
@@ -8,13 +8,26 @@
   ],
   "buy_candidates": [
     {
+      "티커": "086520",
+      "종목명": "에코프로",
+      "정규장종가": 88900.0,
+      "참고매수가": 88900.0,
+      "매수상한가": 88988,
+      "등락률": 4.47,
+      "거래량배수": 2.03,
+      "패턴확인": true,
+      "패턴승률": 0.778,
+      "패턴매칭수": 9,
+      "비고": "NXT 호가가 매수상한가보다 높으면 매수하지 마세요. 실제 호가는 HTS/MTS에서 확인."
+    },
+    {
       "티커": "005070",
       "종목명": "코스모신소재",
       "정규장종가": 47200.0,
       "참고매수가": 47200.0,
       "매수상한가": 47247,
       "등락률": 5.83,
-      "거래량배수": 2.48,
+      "거래량배수": 2.57,
       "패턴확인": true,
       "패턴승률": 0.667,
       "패턴매칭수": 12,
@@ -37,22 +50,22 @@
       "annual_return_pct": 40.5
     },
     "oos": {
-      "trades": 1280,
-      "avg_net_pct": 0.471,
-      "median_net_pct": 0.101,
-      "win_rate": 0.527,
-      "t_stat": 5.11,
+      "trades": 1288,
+      "avg_net_pct": 0.467,
+      "median_net_pct": 0.097,
+      "win_rate": 0.526,
+      "t_stat": 5.1,
       "max_drawdown_pct": -15.95,
-      "annual_return_pct": 89.9
+      "annual_return_pct": 89.2
     },
     "recent": {
-      "trades": 329,
-      "avg_net_pct": 0.709,
-      "median_net_pct": 0.274,
-      "win_rate": 0.55,
-      "t_stat": 3.06,
-      "max_drawdown_pct": -7.68,
-      "annual_return_pct": 135.5
+      "trades": 323,
+      "avg_net_pct": 0.667,
+      "median_net_pct": 0.242,
+      "win_rate": 0.548,
+      "t_stat": 2.94,
+      "max_drawdown_pct": -7.84,
+      "annual_return_pct": 126.7
     },
     "cost_stress": {
       "dev": {
@@ -69,26 +82,26 @@
       },
       "test": {
         "+0.1%": {
-          "avg_net_pct": 0.371,
-          "win_rate": 0.5,
-          "t_stat": 4.09
+          "avg_net_pct": 0.367,
+          "win_rate": 0.499,
+          "t_stat": 4.08
         },
         "+0.2%": {
-          "avg_net_pct": 0.271,
+          "avg_net_pct": 0.267,
           "win_rate": 0.466,
-          "t_stat": 3.08
+          "t_stat": 3.06
         }
       },
       "recent": {
         "+0.1%": {
-          "avg_net_pct": 0.609,
-          "win_rate": 0.535,
-          "t_stat": 2.65
+          "avg_net_pct": 0.567,
+          "win_rate": 0.533,
+          "t_stat": 2.54
         },
         "+0.2%": {
-          "avg_net_pct": 0.509,
-          "win_rate": 0.505,
-          "t_stat": 2.24
+          "avg_net_pct": 0.467,
+          "win_rate": 0.502,
+          "t_stat": 2.14
         }
       }
     },
@@ -99,11 +112,11 @@
       ],
       "test": [
         "20230102",
-        "20260922"
+        "20260930"
       ],
       "recent": [
-        "20250916",
-        "20260922"
+        "20250922",
+        "20260930"
       ]
     }
   },
