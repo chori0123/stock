@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-03T10:13:48.262706+09:00",
+ "generated_at": "2026-10-10T10:16:12.277506+09:00",
  "live_strategy": {
   "name": "E. ★현재★ 기술적 조건 + 과거패턴(5건↑·60%↑) + 시장 20일선 위, 5종목",
   "edge_confirmed": true,
@@ -14,19 +14,19 @@
    "annual_return_pct": 40.5
   },
   "oos": {
-   "trades": 1288,
-   "avg_net_pct": 0.467,
-   "median_net_pct": 0.097,
-   "win_rate": 0.526,
-   "t_stat": 5.1,
+   "trades": 1298,
+   "avg_net_pct": 0.477,
+   "median_net_pct": 0.107,
+   "win_rate": 0.527,
+   "t_stat": 5.17,
    "max_drawdown_pct": -15.95,
-   "annual_return_pct": 89.2
+   "annual_return_pct": 90.6
   },
   "recent": {
-   "trades": 323,
-   "avg_net_pct": 0.667,
-   "median_net_pct": 0.242,
-   "win_rate": 0.548,
+   "trades": 328,
+   "avg_net_pct": 0.681,
+   "median_net_pct": 0.258,
+   "win_rate": 0.549,
    "t_stat": 2.94,
    "max_drawdown_pct": -7.84,
    "annual_return_pct": 126.7
@@ -46,26 +46,26 @@
    },
    "test": {
     "+0.1%": {
-     "avg_net_pct": 0.367,
-     "win_rate": 0.499,
-     "t_stat": 4.08
+     "avg_net_pct": 0.377,
+     "win_rate": 0.501,
+     "t_stat": 4.15
     },
     "+0.2%": {
-     "avg_net_pct": 0.267,
-     "win_rate": 0.466,
-     "t_stat": 3.06
+     "avg_net_pct": 0.277,
+     "win_rate": 0.468,
+     "t_stat": 3.12
     }
    },
    "recent": {
     "+0.1%": {
-     "avg_net_pct": 0.567,
-     "win_rate": 0.533,
-     "t_stat": 2.54
+     "avg_net_pct": 0.581,
+     "win_rate": 0.534,
+     "t_stat": 2.53
     },
     "+0.2%": {
-     "avg_net_pct": 0.467,
-     "win_rate": 0.502,
-     "t_stat": 2.14
+     "avg_net_pct": 0.481,
+     "win_rate": 0.503,
+     "t_stat": 2.13
     }
    }
   },
@@ -76,11 +76,11 @@
    ],
    "test": [
     "20230102",
-    "20260930"
+    "20261007"
    ],
    "recent": [
-    "20250922",
-    "20260930"
+    "20250926",
+    "20261007"
    ]
   }
  },
@@ -339,17 +339,17 @@
   },
   "test": {
    "A_baseline_all_liquid": {
-    "trades": 504890,
-    "days_traded": 913,
+    "trades": 506927,
+    "days_traded": 917,
     "avg_net_pct": -0.011,
     "median_net_pct": -0.2,
     "win_rate": 0.431,
     "avg_gross_pct": 0.222,
     "worst_trade_pct": -30.25,
-    "compound_return_pct": -23.68,
-    "annual_return_pct": -7.1,
+    "compound_return_pct": -23.5,
+    "annual_return_pct": -7.0,
     "max_drawdown_pct": -48.9,
-    "t_stat": -0.76,
+    "t_stat": -0.75,
     "by_year": {
      "2023": {
       "trades": 141790,
@@ -367,24 +367,24 @@
       "win_rate": 0.464
      },
      "2026": {
-      "trades": 111223,
-      "avg_net_pct": 0.132,
-      "win_rate": 0.466
+      "trades": 113260,
+      "avg_net_pct": 0.131,
+      "win_rate": 0.465
      }
     }
    },
    "B_rules_all": {
-    "trades": 21020,
-    "days_traded": 913,
-    "avg_net_pct": 0.231,
+    "trades": 21167,
+    "days_traded": 917,
+    "avg_net_pct": 0.229,
     "median_net_pct": -0.2,
     "win_rate": 0.434,
-    "avg_gross_pct": 0.463,
+    "avg_gross_pct": 0.461,
     "worst_trade_pct": -29.22,
-    "compound_return_pct": 34.07,
-    "annual_return_pct": 8.3,
-    "max_drawdown_pct": -36.9,
-    "t_stat": 0.9,
+    "compound_return_pct": 31.64,
+    "annual_return_pct": 7.7,
+    "max_drawdown_pct": -37.69,
+    "t_stat": 0.85,
     "by_year": {
      "2023": {
       "trades": 5976,
@@ -402,24 +402,24 @@
       "win_rate": 0.446
      },
      "2026": {
-      "trades": 4154,
-      "avg_net_pct": 0.476,
-      "win_rate": 0.456
+      "trades": 4301,
+      "avg_net_pct": 0.458,
+      "win_rate": 0.454
      }
     }
    },
    "C_old_score_top10": {
-    "trades": 8654,
-    "days_traded": 913,
-    "avg_net_pct": 0.146,
+    "trades": 8694,
+    "days_traded": 917,
+    "avg_net_pct": 0.142,
     "median_net_pct": -0.25,
     "win_rate": 0.402,
-    "avg_gross_pct": 0.377,
+    "avg_gross_pct": 0.373,
     "worst_trade_pct": -29.22,
-    "compound_return_pct": 103.35,
-    "annual_return_pct": 21.3,
-    "max_drawdown_pct": -40.23,
-    "t_stat": 1.6,
+    "compound_return_pct": 97.91,
+    "annual_return_pct": 20.3,
+    "max_drawdown_pct": -40.84,
+    "t_stat": 1.54,
     "by_year": {
      "2023": {
       "trades": 2355,
@@ -437,24 +437,24 @@
       "win_rate": 0.407
      },
      "2026": {
-      "trades": 1565,
-      "avg_net_pct": 0.116,
+      "trades": 1605,
+      "avg_net_pct": 0.097,
       "win_rate": 0.394
      }
     }
    },
    "D_old_own_pattern": {
-    "trades": 1850,
-    "days_traded": 684,
-    "avg_net_pct": 0.389,
+    "trades": 1864,
+    "days_traded": 687,
+    "avg_net_pct": 0.399,
     "median_net_pct": 0.005,
-    "win_rate": 0.502,
-    "avg_gross_pct": 0.621,
+    "win_rate": 0.503,
+    "avg_gross_pct": 0.631,
     "worst_trade_pct": -20.27,
-    "compound_return_pct": 834.66,
-    "annual_return_pct": 83.5,
+    "compound_return_pct": 880.33,
+    "annual_return_pct": 85.4,
     "max_drawdown_pct": -22.77,
-    "t_stat": 4.25,
+    "t_stat": 4.33,
     "by_year": {
      "2023": {
       "trades": 625,
@@ -472,24 +472,24 @@
       "win_rate": 0.504
      },
      "2026": {
-      "trades": 277,
-      "avg_net_pct": 0.541,
-      "win_rate": 0.527
+      "trades": 291,
+      "avg_net_pct": 0.595,
+      "win_rate": 0.533
      }
     }
    },
    "E_live": {
-    "trades": 1288,
-    "days_traded": 493,
-    "avg_net_pct": 0.467,
-    "median_net_pct": 0.097,
-    "win_rate": 0.526,
-    "avg_gross_pct": 0.699,
+    "trades": 1298,
+    "days_traded": 496,
+    "avg_net_pct": 0.477,
+    "median_net_pct": 0.107,
+    "win_rate": 0.527,
+    "avg_gross_pct": 0.709,
     "worst_trade_pct": -20.27,
-    "compound_return_pct": 945.31,
-    "annual_return_pct": 89.2,
+    "compound_return_pct": 985.92,
+    "annual_return_pct": 90.6,
     "max_drawdown_pct": -15.95,
-    "t_stat": 5.1,
+    "t_stat": 5.17,
     "by_year": {
      "2023": {
       "trades": 452,
@@ -507,136 +507,136 @@
       "win_rate": 0.53
      },
      "2026": {
-      "trades": 203,
-      "avg_net_pct": 0.747,
-      "win_rate": 0.542
+      "trades": 213,
+      "avg_net_pct": 0.794,
+      "win_rate": 0.549
      }
     }
    }
   },
   "recent": {
    "A_baseline_all_liquid": {
-    "trades": 147376,
+    "trades": 147180,
     "days_traded": 248,
-    "avg_net_pct": 0.126,
-    "median_net_pct": -0.081,
-    "win_rate": 0.474,
-    "avg_gross_pct": 0.364,
+    "avg_net_pct": 0.13,
+    "median_net_pct": -0.077,
+    "win_rate": 0.475,
+    "avg_gross_pct": 0.369,
     "worst_trade_pct": -30.23,
-    "compound_return_pct": 22.21,
-    "annual_return_pct": 22.2,
+    "compound_return_pct": 23.6,
+    "annual_return_pct": 23.6,
     "max_drawdown_pct": -19.26,
-    "t_stat": 0.96,
+    "t_stat": 1.01,
     "by_year": {
      "2025": {
-      "trades": 36153,
-      "avg_net_pct": 0.106,
-      "win_rate": 0.496
+      "trades": 33920,
+      "avg_net_pct": 0.128,
+      "win_rate": 0.506
      },
      "2026": {
-      "trades": 111223,
-      "avg_net_pct": 0.132,
-      "win_rate": 0.466
+      "trades": 113260,
+      "avg_net_pct": 0.131,
+      "win_rate": 0.465
      }
     }
    },
    "B_rules_all": {
-    "trades": 5769,
+    "trades": 5817,
     "days_traded": 248,
-    "avg_net_pct": 0.429,
+    "avg_net_pct": 0.426,
     "median_net_pct": -0.2,
     "win_rate": 0.452,
-    "avg_gross_pct": 0.665,
+    "avg_gross_pct": 0.663,
     "worst_trade_pct": -22.77,
-    "compound_return_pct": 3.99,
-    "annual_return_pct": 4.0,
-    "max_drawdown_pct": -36.9,
-    "t_stat": 0.28,
+    "compound_return_pct": 2.87,
+    "annual_return_pct": 2.9,
+    "max_drawdown_pct": -37.69,
+    "t_stat": 0.25,
     "by_year": {
      "2025": {
-      "trades": 1615,
-      "avg_net_pct": 0.308,
-      "win_rate": 0.441
+      "trades": 1516,
+      "avg_net_pct": 0.334,
+      "win_rate": 0.445
      },
      "2026": {
-      "trades": 4154,
-      "avg_net_pct": 0.476,
-      "win_rate": 0.456
+      "trades": 4301,
+      "avg_net_pct": 0.458,
+      "win_rate": 0.454
      }
     }
    },
    "C_old_score_top10": {
     "trades": 2208,
     "days_traded": 248,
-    "avg_net_pct": 0.16,
+    "avg_net_pct": 0.146,
     "median_net_pct": -0.25,
-    "win_rate": 0.396,
-    "avg_gross_pct": 0.396,
+    "win_rate": 0.398,
+    "avg_gross_pct": 0.382,
     "worst_trade_pct": -22.77,
-    "compound_return_pct": 4.85,
-    "annual_return_pct": 4.8,
-    "max_drawdown_pct": -40.23,
-    "t_stat": 0.31,
+    "compound_return_pct": 1.42,
+    "annual_return_pct": 1.4,
+    "max_drawdown_pct": -40.84,
+    "t_stat": 0.22,
     "by_year": {
      "2025": {
-      "trades": 643,
-      "avg_net_pct": 0.267,
-      "win_rate": 0.403
+      "trades": 603,
+      "avg_net_pct": 0.274,
+      "win_rate": 0.406
      },
      "2026": {
-      "trades": 1565,
-      "avg_net_pct": 0.116,
+      "trades": 1605,
+      "avg_net_pct": 0.097,
       "win_rate": 0.394
      }
     }
    },
    "D_old_own_pattern": {
-    "trades": 429,
+    "trades": 433,
     "days_traded": 145,
-    "avg_net_pct": 0.607,
+    "avg_net_pct": 0.624,
     "median_net_pct": 0.163,
     "win_rate": 0.536,
-    "avg_gross_pct": 0.84,
+    "avg_gross_pct": 0.858,
     "worst_trade_pct": -7.73,
-    "compound_return_pct": 121.19,
-    "annual_return_pct": 121.2,
+    "compound_return_pct": 125.93,
+    "annual_return_pct": 125.9,
     "max_drawdown_pct": -8.61,
-    "t_stat": 3.21,
+    "t_stat": 3.27,
     "by_year": {
      "2025": {
-      "trades": 152,
-      "avg_net_pct": 0.729,
-      "win_rate": 0.553
+      "trades": 142,
+      "avg_net_pct": 0.684,
+      "win_rate": 0.542
      },
      "2026": {
-      "trades": 277,
-      "avg_net_pct": 0.541,
-      "win_rate": 0.527
+      "trades": 291,
+      "avg_net_pct": 0.595,
+      "win_rate": 0.533
      }
     }
    },
    "E_live": {
-    "trades": 323,
-    "days_traded": 118,
-    "avg_net_pct": 0.667,
-    "median_net_pct": 0.242,
-    "win_rate": 0.548,
-    "avg_gross_pct": 0.898,
+    "trades": 328,
+    "days_traded": 119,
+    "avg_net_pct": 0.681,
+    "median_net_pct": 0.258,
+    "win_rate": 0.549,
+    "avg_gross_pct": 0.914,
     "worst_trade_pct": -7.73,
-    "compound_return_pct": 126.72,
+    "compound_return_pct": 126.69,
     "annual_return_pct": 126.7,
     "max_drawdown_pct": -7.84,
     "t_stat": 2.94,
     "by_year": {
      "2025": {
-      "trades": 120,
-      "avg_net_pct": 0.531,
-      "win_rate": 0.558
+      "trades": 115,
+      "avg_net_pct": 0.473,
+      "win_rate": 0.548
      },
      "2026": {
-      "trades": 203,
-      "avg_net_pct": 0.747,
-      "win_rate": 0.542
+      "trades": 213,
+      "avg_net_pct": 0.794,
+      "win_rate": 0.549
      }
     }
    }
