@@ -1,0 +1,97 @@
+{
+  "date": "20261030",
+  "generated_at": "2026-10-31T01:09:59.844258+09:00",
+  "stage": "buy_signal_18_00_19_00",
+  "window": [
+    "18:00",
+    "19:00"
+  ],
+  "buy_candidates": [],
+  "market_up": false,
+  "missing_input": false,
+  "validation": {
+    "name": "E. ★현재★ 기술적 조건 + 과거패턴(5건↑·60%↑) + 시장 20일선 위, 5종목",
+    "edge_confirmed": true,
+    "recent_warning": false,
+    "is": {
+      "trades": 3260,
+      "avg_net_pct": 0.211,
+      "median_net_pct": 0.048,
+      "win_rate": 0.522,
+      "t_stat": 4.81,
+      "max_drawdown_pct": -9.97,
+      "annual_return_pct": 40.5
+    },
+    "oos": {
+      "trades": 1298,
+      "avg_net_pct": 0.477,
+      "median_net_pct": 0.107,
+      "win_rate": 0.527,
+      "t_stat": 5.17,
+      "max_drawdown_pct": -15.95,
+      "annual_return_pct": 89.4
+    },
+    "recent": {
+      "trades": 315,
+      "avg_net_pct": 0.736,
+      "median_net_pct": 0.277,
+      "win_rate": 0.552,
+      "t_stat": 2.93,
+      "max_drawdown_pct": -7.84,
+      "annual_return_pct": 124.9
+    },
+    "cost_stress": {
+      "dev": {
+        "+0.1%": {
+          "avg_net_pct": 0.111,
+          "win_rate": 0.475,
+          "t_stat": 2.89
+        },
+        "+0.2%": {
+          "avg_net_pct": 0.011,
+          "win_rate": 0.44,
+          "t_stat": 0.97
+        }
+      },
+      "test": {
+        "+0.1%": {
+          "avg_net_pct": 0.377,
+          "win_rate": 0.501,
+          "t_stat": 4.15
+        },
+        "+0.2%": {
+          "avg_net_pct": 0.277,
+          "win_rate": 0.468,
+          "t_stat": 3.12
+        }
+      },
+      "recent": {
+        "+0.1%": {
+          "avg_net_pct": 0.636,
+          "win_rate": 0.537,
+          "t_stat": 2.55
+        },
+        "+0.2%": {
+          "avg_net_pct": 0.536,
+          "win_rate": 0.508,
+          "t_stat": 2.16
+        }
+      }
+    },
+    "periods": {
+      "dev": [
+        "20160104",
+        "20221229"
+      ],
+      "test": [
+        "20230102",
+        "20261021"
+      ],
+      "recent": [
+        "20251016",
+        "20261021"
+      ]
+    }
+  },
+  "note": "시장지수가 20일 이동평균 아래입니다. 과거 11년간 이런 날은 이 전략의 기대수익이 0 근처였고 손실폭이 컸으므로 오늘은 매수하지 않습니다."
+}
