@@ -1,6 +1,6 @@
 {
-  "date": "20261113",
-  "generated_at": "2026-11-14T02:20:03.402193+09:00",
+  "date": "20261116",
+  "generated_at": "2026-11-17T04:47:09.367283+09:00",
   "stage": "buy_signal_18_00_19_00",
   "window": [
     "18:00",
@@ -29,16 +29,16 @@
       "win_rate": 0.527,
       "t_stat": 5.17,
       "max_drawdown_pct": -15.95,
-      "annual_return_pct": 88.1
+      "annual_return_pct": 87.5
     },
     "recent": {
-      "trades": 272,
-      "avg_net_pct": 0.649,
-      "median_net_pct": 0.173,
-      "win_rate": 0.54,
-      "t_stat": 2.51,
+      "trades": 267,
+      "avg_net_pct": 0.615,
+      "median_net_pct": 0.152,
+      "win_rate": 0.532,
+      "t_stat": 2.26,
       "max_drawdown_pct": -7.84,
-      "annual_return_pct": 95.5
+      "annual_return_pct": 80.9
     },
     "cost_stress": {
       "dev": {
@@ -67,14 +67,14 @@
       },
       "recent": {
         "+0.1%": {
-          "avg_net_pct": 0.549,
-          "win_rate": 0.522,
-          "t_stat": 2.15
+          "avg_net_pct": 0.515,
+          "win_rate": 0.513,
+          "t_stat": 1.9
         },
         "+0.2%": {
-          "avg_net_pct": 0.449,
-          "win_rate": 0.489,
-          "t_stat": 1.79
+          "avg_net_pct": 0.415,
+          "win_rate": 0.479,
+          "t_stat": 1.55
         }
       }
     },
@@ -85,11 +85,11 @@
       ],
       "test": [
         "20230102",
-        "20261104"
+        "20261111"
       ],
       "recent": [
-        "20251030",
-        "20261104"
+        "20251106",
+        "20261111"
       ]
     }
   },
